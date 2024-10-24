@@ -1,6 +1,7 @@
 # BandStructure_DOS_PDOS
 BSb 2D Structure: Band Structure, DOS, and PDOS Plots
 This repository contains all the files and scripts used to generate the band structure, density of states (DOS), and projected density of states (PDOS) for the BSb 2D material using Xmgrace.
+https://youtu.be/gghbO03kWCQ
 
 Included Files:
 Input and output files for band structure and DOS/PDOS plots
