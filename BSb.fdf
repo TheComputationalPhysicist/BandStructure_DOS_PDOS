@@ -1,0 +1,100 @@
+#--------------------- SYSTEM DETAILS ---------------------#
+SystemLabel      		BSb
+NumberOfAtoms    		2
+NumberOfSpecies  		2
+
+%block ChemicalSpeciesLabel
+    1    5  B
+    2    51 Sb
+%endblock ChemicalSpeciesLabel
+
+#--------------------- LATTICE PARAMETER & ATOMIC COORDINATES ---------------------#
+LatticeConstant 1.0 Ang
+%block LatticeVectors
+        3.7400009632         0.0000000000         0.0000000000
+       -1.8700004816         3.2389358443         0.0000000000
+        0.0000000000         0.0000000000        15.0000000000
+%endblock LatticeVectors
+
+AtomicCoordinatesFormat Fractional
+%block AtomicCoordinatesAndAtomicSpecies
+     0.333333343         0.666666687         0.050000001	1
+     0.666666687         0.333333343         0.050000001        2     
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+#--------------------- K-POINT ---------------------#
+%block kgrid_Monkhorst_Pack
+  15   0   0    0.0
+   0  15   0    0.0
+   0   0   1    0.0
+%endblock kgrid_Monkhorst_Pack
+
+#--------------------- XC-DETAILS ---------------------#
+
+XC.functional    		GGA
+XC.Authors       		PBE
+
+#--------------------- PSEUDO-ATOMIC ORBITALS(PAO) ---------------------#
+PAO.BasisType    		split
+PAO.BasisSize    		DZP
+PAO.SplitNorm    		0.15
+PAO.EnergyShift   		0.01	Ry
+
+#--------------------- WRITE TERM (DM) ---------------------#
+WriteDM		        	true
+WriteCoorXmol			true
+WriteMDhistory			true
+
+#--------------------- DENSITY METRIX TERM (DM) ---------------------#
+DM.NumberPulay      		7
+DM.MixingWeight    		0.03
+DM.UseSaveDM        		true
+
+#--------------------- MOLECULAR DYNEMICS TERM (MD) ---------------------#
+MD.TypeOfRun     		CG
+MD.NumCGsteps    		1000
+MD.MaxCGDispl    		0.1	Ang
+MD.MaxForceTol   		0.001	eV/Ang
+MD.VariableCell      		true
+
+#--------------------- GENERAL TERM ---------------------#
+UseSaveData    			true
+SolutionMethod     		diagon
+MeshCutoff    			450	Ry
+ElectronicTemperature   	25	meV
+
+#--------------------- EXTRA-TERM ---------------------#
+WriteHirshfeldPop 		true
+WriteVoronoiPop 		true
+saverho				true
+
+#--------------------- PROJECTED DOS TERM (PDOS) ---------------------#
+%block ProjectedDensityOfStates
+-15.00 10.00 0.200 1000 eV
+%endblock ProjectedDensityOfStates
+
+#--------------------- BAND-STRUCTURE ANALYSIS TERM  ---------------------#
+#WFS.Write.For.Bands true
+BandLinesScale ReciprocalLatticeVectors
+%block BandLines
+1  0.000 0.000 0.000 \Gamma
+40 0.333 0.333 0.000 K
+40 0.500 0.000 0.000 M
+40 0.000 0.000 0.000 \Gamma
+%endblock BandLines
+
+#--------------------- THE SELF-CONSISTENT-FIELD LOOP TERM (SCF) ---------------------#
+MaxSCFIterations    		300
+
+#--------------------- END OF FILE ---------------------#
+
+
+
+
+
+
+
+
+#--------------------- GOOD LUCK ---------------------#
+
+
